@@ -1,0 +1,113 @@
+
+
+<!--View Information-->
+<!--View name : Location Feed-->
+<!--State name : app.locationFeed-->
+<!--URL : #app/locationFeed-->
+
+<ion-view title="Post Product">
+    <!--location feed section-->
+    <ion-content id="user-interface-content" >
+        <!--list section-->
+       
+        
+ <form name="postproduct" novalidate>
+       <div class="list">    
+
+
+  
+
+
+
+ 
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Product Name</span>
+    <input type="text" name="product_name" placeholder="Product Name" ng-model="formdata.product_name" required> </label>
+<div ng-show="postproduct.$submitted || postproduct.product_name.$touched" class="error">
+        <p ng-show="postproduct.product_name.$error.required" class="error">Provide us product Name</p></div>
+
+ <label class="item item-input item-floating-label">
+    <span class="input-label">Model Number</span>
+    <input type="text" placeholder="Model Number" name="product_model"  ng-model="formdata.model_number" required>
+  </label>
+
+     <div ng-show="postsellingleads.$submitted || postsellingleads.product_model.$touched" class="error">
+        <p ng-show="postsellingleads.product_model.$error.required" class="error">Provide us product model number</p></div>
+     
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Details</span>
+    <input type="text" placeholder="Details"  ng-model="formdata.details" >
+  </label>
+
+
+
+
+<label class="item item-input item-select">
+    <div class="input-label" >
+        Category
+    </div>
+    <select ng-model="formdata.category" name="category" ng-options="item.CatID as item.CatName for item in cat_d" required>
+   
+      
+    </select>
+  </label>    <div ng-show="postproduct.$submitted || postproduct.category.$touched" class="error">
+        <p ng-show="postproduct.category.$error.required" class="error">Provide us product category</p></div>
+
+  <label class="item item-input">
+   
+   
+   
+<button class="button icon ion-camera"  ng-click="showListBottomSheet($event)"
+           ></button>
+  </label>
+   
+  <div ng-if="imageList" class="feed-list">
+                    <div class="feed-item" ng-repeat="(key, value) in imageList">
+                        <div class="img-header" style="background-image: url(imageList)">
+                        </div>
+                        <div class="content">
+                           imageList
+                        </div>
+                  </div> </div>
+
+           
+  
+</div>
+ 
+
+<button type="button" class="button button-block button-positive"
+  ng-click="postdata(postproduct.$valid,formdata)">
+ Submit
+</button>  </form>
+
+
+  
+    </ion-content><!--end location feed section-->
+
+     <!--loading progress-->
+    <!--angular template section-->
+    <script type="text/ng-template" id="image-picker-actions-template">
+        <md-bottom-sheet class="md-list md-has-header">
+            <h1 class="md-bottom-sheet-header">Image Picker Actions</h1>
+            <!--list section-->
+            <md-list>
+                <md-list-item>
+                    <a class="md-default-theme md-bottom-sheet-list-item"
+                       ng-click="selectImage(1)">
+                        <i class="ion-image"></i>
+                        <span>Single Select</span>
+                    </a>
+                </md-list-item>
+
+                <md-list-item>
+                    <a class="md-default-theme md-bottom-sheet-list-item"
+                       ng-click="selectImage(9999)">
+                        <i class="ion-images"></i>
+                        <span>Multiple Select</span>
+                    </a>
+                </md-list-item>
+            </md-list><!--end list section-->
+        </md-bottom-sheet>
+    </script><!--end angular template section-->
+   
+</ion-view>

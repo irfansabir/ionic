@@ -1,0 +1,62 @@
+<!--View Information-->
+<!--View name : NEWS Feed-->
+<!--State name : app.newsFeed-->
+<!--URL : #app/newsFeed-->
+
+<ion-view title="{{data.ProductName}}">
+    <!--news feed section-->
+     <ion-nav-buttons side="left">
+        <a ng-click="backtosupplier('app.list')" class="button back-button buttons  button-clear header-item nav-back-btn">
+            <i class="ion-android-arrow-back "></i>
+        </a>
+    </ion-nav-buttons>
+    <ion-content id="news-feed-content">
+
+      
+
+
+
+        <div class="list card">
+
+  <div class="item item-avatar">
+    <img src="http://dev.pcexporters.com/uploads/logo/{{data.CompanyLogo}}" />
+    <h2> {{data.FirstName}} &nbsp;
+                        {{data.LastName}}</h2>
+                       
+    
+  </div>
+
+  <div class="item item-body">
+    <img class="full-image" src="http://dev.pcexporters.com/{{data.image_path}}" />
+    <p>
+      {{data.Details}}
+    </p>
+</p> Company:  {{data.CompanyName}} </p>
+    <p>
+      <a href="#" class="subdued">1 Like</a>
+      <a href="#" class="subdued">5 Comments</a>
+    </p>
+  </div>
+
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item" href="#">
+      <i class="icon ion-thumbsup"></i>
+      Like
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-chatbox"></i>
+      Comment
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+      Share
+    </a>
+  </div>
+
+</div>
+
+        <div class="row"></div>
+    </ion-content><!--end news feed section-->
+
+  
+</ion-view>

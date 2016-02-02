@@ -1,0 +1,130 @@
+
+
+<!--View Information-->
+<!--View name : Location Feed-->
+<!--State name : app.locationFeed-->
+<!--URL : #app/locationFeed-->
+
+<ion-view title="What are you selling ?">
+    <!--location feed section-->
+    <ion-content id="user-interface-content" >
+        <!--list section-->
+       
+        
+ <form name="postsellingleads" novalidate >
+       <div class="list">    
+
+
+  <label class="item item-input item-select">
+    <div class="input-label" >
+       Product Category
+    </div>
+    <select ng-model="formdata.category" name="category" ng-options="item.CatID as item.CatName for item in cat_d" required>
+      <div ng-show="postsellingleads.$submitted || postsellingleads.category.$touched" class="error">
+        <p ng-show="postsellingleads.category.$error.required" class="error">Provide us product category</p></div>
+      
+    </select>
+  </label> 
+
+
+
+ 
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Product Name</span>
+    <input type="text" name="product_name" placeholder="Product Name" ng-model="formdata.product_name" required>
+
+  </label>
+
+     <div ng-show="postsellingleads.$submitted || postsellingleads.product_name.$touched" class="error">
+        <p ng-show="postsellingleads.product_name.$error.required" class="error">Provide us product name</p></div>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Model Number</span>
+    <input type="text" placeholder="Model Number" name="product_model"  ng-model="formdata.model_number" required>
+  </label>
+
+     <div ng-show="postsellingleads.$submitted || postsellingleads.product_model.$touched" class="error">
+        <p ng-show="postsellingleads.product_model.$error.required" class="error">Provide us product model number</p></div>
+   <label class="item item-input item-floating-label">
+    <span class="input-label">Price</span>
+    <input type="text" placeholder="Price" name="price"  ng-model="formdata.price" required>
+  </label>
+
+  <div ng-show="postsellingleads.$submitted || postsellingleads.price.$touched" class="error">
+        <p ng-show="postsellingleads.price.$error.required" class="error">Provide us product Price</p></div>
+   <label class="item item-input item-floating-label">
+    <span class="input-label">Details</span>
+    <input type="text" placeholder="Details"  ng-model="formdata.details" >
+  </label>
+
+
+
+<label class="item item-input">
+    <div class="input-label" style="font-size:12px">
+       <span class="input-label"> Expiry Date </span>
+    </div>
+   
+    <md-datepicker ng-model="mydate" id="mydate" ng-change="setdate(mydate)" md-placeholder="Enter date"></md-datepicker>
+  </label>
+
+  <label class="item item-input">
+   
+   
+   
+<button class="button icon ion-camera"   type="button" ng-click="selectImage(1)"></button>
+
+
+  </label>
+
+  <div ng-if="imageList" class="feed-list">
+                    <div class="feed-item" ng-repeat="(key, value) in imageList">
+                        <div class="img-header" style="background-image: url('value')">
+                        </div>
+                        <div class="content">
+                           <img src="{{value}}" height="50" width="50"/>
+                        </div>
+                  </div> </div>
+   
+
+
+    <div class="item item-divider" style="font-size:12px"> 
+       <span class="input-label">   Offer Type </span>
+        </div>
+         <div class="radio-container padding">
+                <md-radio-group ng-model="formdata.offer_type">
+                    <md-radio-button value="One Time" >One Time</md-radio-button>
+                    <md-radio-button value="Regular"> Regular</md-radio-button>
+                    
+                </md-radio-group>
+            </div>
+        
+ 
+</div>
+ <div class="item item-divider" style="font-size:12px"> 
+        <span class="input-label"> Add my contact info in email broadcast </span>
+        </div>
+        
+        
+
+          <div class="radio-container padding">
+                <md-radio-group ng-model="formdata.contact_info">
+                    <md-radio-button value="Y" >Yes</md-radio-button>
+                    <md-radio-button value="N"> No</md-radio-button>
+                    
+                </md-radio-group>
+            </div>
+ 
+
+ <button type="button" class="button button-block button-positive"
+  ng-click="postdata(postsellingleads.$valid,formdata)">
+ Submit
+</button>  <br> <br>
+</div>  </form>
+
+
+  
+    </ion-content><!--end location feed section-->
+
+     <!--loading progress-->
+    <!--angular template section-->
+    
+</ion-view>

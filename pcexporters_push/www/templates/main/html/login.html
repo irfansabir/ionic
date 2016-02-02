@@ -1,0 +1,62 @@
+<!--View Information-->
+<!--View name : Fake Login-->
+<!--State name : app.fakeLogin-->
+<!--URL : #app/fakeLogin-->
+
+<ion-view title="Sign In">
+    <!--left button on navigation bar-->
+    <ion-nav-buttons side="left">
+
+        
+
+        
+    </ion-nav-buttons><!--end left button on navigation bar-->
+
+    <!--login content section-->
+    <ion-content id="social-login" class="bg-white">
+        <!--fake login form section-->
+        <form class="fakeLogin-form" name="loginform" novalidate >
+            <div>
+                <img src="img/app_icon.png"/>
+            </div>
+            <div class="sub-header">Sign in to application</div>
+
+            <div id="fakeLogin">
+                <md-input-container md-no-float="">
+                    <input type="email" class="user-name" name="uEmail"  ng-model="data.uEmail" ng-minlength="5" required placeholder="Company Email">
+
+
+                </md-input-container>
+                <hr/>
+                <div ng-show="loginform.$submitted || loginform.uEmail.$touched" class="error">
+      <span ng-show="loginform.uEmail.$error.required">Tell us your email.</span>
+      <span ng-show="loginform.uEmail.$error.email">This is not a valid email.</span>
+    </div>
+                <md-input-container md-no-float="">
+                    <input class="user-password" type="password" name="password" placeholder="Password" ng-model="data.password" ng-minlength="1" required>
+
+                    
+                </md-input-container>
+                 <div ng-show="loginform.$submitted || loginform.password.$touched" class="error">
+        <p ng-show="loginform.password.$error.required" class="error">Provide us password for authentication</p>
+        
+           
+          </div>
+            </div>
+            <div>
+
+                
+                <button type="button" class="md-raised social-button md-button md-default-theme material-background" ng-click="submitttt(loginform.$valid,data)">
+                    Sign In
+                </button>
+
+
+                 <a style="background:#DA3627 !important" class="md-raised social-button md-button md-default-theme material-background" ng-click="signup()">
+                    Sign up
+                </a>
+
+                
+            </div>
+        </form> <!--end fake login form section-->
+    </ion-content><!--end login content section-->
+</ion-view>

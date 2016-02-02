@@ -1,0 +1,109 @@
+<!--View Information-->
+<!--View name : Expense Dashboard-->
+<!--Controller name : expenseDashboardCtrl-->
+<!--Controller path : www/templates/themes/expense-dashboard/js/controllers.js-->
+<!--State name : app.expense-->
+<!--URL : #app/expense-->
+
+<ion-view title="Company Profile" id="expense-dashboard">
+
+
+    <ion-nav-buttons side="left">
+        <a ng-click="backtosupplier()" class="button back-button buttons  button-clear header-item nav-back-btn">
+            <i class="ion-android-arrow-back "></i>
+        </a>
+    </ion-nav-buttons>
+    <!--right button on navigation bar
+    <ion-nav-buttons side="right">
+        <md-button class="md-icon-button ion-nav-button-right" 
+                   aria-label="Setting">
+            <i class="ion-android-more-vertical"></i>
+        </md-button>
+    </ion-nav-buttons> <!--end right button on navigation bar-->
+
+    <!--expense toolbar section-->
+    <md-toolbar style="max-height: 180px !important;
+    height: 180px !important;" class="bar-subheader md-tall md-primary toolbar-expense">
+        <div>
+            <img style="width: 50px !important; 
+    height: 50px !important; " src="http://dev.pcexporters.com/{{buyer_details.CompanyLogo == '' ? no_preview : buyer_details.CompanyLogo}}" class="user-img"/>
+
+            <h2>{{buyer_details.CompanyName}}</h2>
+
+            <h2>Exporter</h2>
+        </div>
+        <a class="md-button md-accent md-fab fab-toolbar-medium" ng-click="goToSetting(buyer_details)" aria-label="Add">
+            <i class="icon ion-android-mail"></i>
+        </a>
+    </md-toolbar><!--end expense toolbar section-->
+
+    <!--expense content section-->
+    <ion-content id="contract-us-content">
+
+         <!--header section-->
+        
+
+     
+
+       
+         <div class="row header">
+            <div class="col">
+               Introduction:
+            </div>
+        </div>
+        <div class="row content">
+            <div class="col-90">
+             {{buyer_details.Introduction}} 
+            </div>
+        </div>
+
+           
+        <!--end content section-->
+    </div>    
+
+ 
+    
+      <button type="button" ng-click="showListBottomSheet($event,buyer_details)" class="button button-full button-positive">
+  View Contact Info
+</button>              
+       
+</ion-content><!--end expense content section-->
+  
+
+    <!--angular template section-->
+<script type="text/ng-template" id="ui-list-bottom-sheet-template">
+    <md-bottom-sheet class="md-list md-has-header">
+        <h1 class="md-bottom-sheet-header">Contact Info</h1>
+        <!--list section-->
+        <md-list>
+            <md-list-item>
+                <a class="md-default-theme md-bottom-sheet-list-item"
+                   ng-click="closeListBottomSheet()">
+                    <i class="ion-social-skype-outline" ></i>
+                  
+                
+                 {{buyer_details.Skype == "" ?  "Not provided" : buyer_details.Skype}}
+            
+           
+                </a>
+            </md-list-item>
+            <md-list-item>
+                <a class="md-default-theme md-bottom-sheet-list-item"
+                   ng-click="closeListBottomSheet()">
+                    <i class="ion-android-mail"></i>
+                     {{buyer_details.official_email}}
+                </a>
+            </md-list-item>
+            <md-list-item>
+                <a class="md-default-theme md-bottom-sheet-list-item"
+                   ng-click="closeListBottomSheet()">
+                    <i class="ion-android-map"></i>
+                    <span> {{buyer_details.Address == "" ? "Not provided" : buyer_details.Address}}</span>
+                </a>
+            </md-list-item>
+        </md-list>
+
+        <!--end list section-->
+    </md-bottom-sheet>
+</script>
+</ion-view>

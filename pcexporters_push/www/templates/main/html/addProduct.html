@@ -1,0 +1,99 @@
+
+
+<!--View Information-->
+<!--View name : Location Feed-->
+<!--State name : app.locationFeed-->
+<!--URL : #app/locationFeed-->
+
+<ion-view title="Add Product to Showroom">
+    <!--location feed section-->
+    <ion-content id="user-interface-content" >
+        <!--list section-->
+       
+        
+
+           <div class="list">
+  <label class="item item-input item-select padding">
+    <div class="input-label" style="font-size:12px">
+       Product Category
+    </div>
+    <select ng-model="formdata.category" ng-options="item.CatID as item.CatName for item in cat_d" required="">
+      
+    </select>
+  </label>
+
+
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Product Name</span>
+    <input type="text" placeholder="Product Name" ng-model="formdata.product_name">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Model Number</span>
+    <input type="text" placeholder="Model Number" ng-model="formdata.pro_model">
+  </label>
+  
+   <label class="item item-input item-floating-label">
+    <span class="input-label">Details / Message</span>
+    <textarea ng-model="formdata.pro_detail" placeholder="Detail"></textarea>
+  </label>
+   
+
+
+
+
+
+  <label class="item item-input">
+   <div class="input-label" style="font-size:12px">
+       <span class="input-label">Product Picture </span>
+    </div>
+   
+   
+<button class="button icon ion-camera"  ng-click="showListBottomSheet($event)"
+           aria-label="showListBottomSheet"></button>
+  </label>
+   
+
+
+   
+        
+ 
+</div>
+
+
+ <button class="button button-block button-positive" ng-click="postdata(formdata)">
+ Submit
+</button>
+</div>  {{imageList}}
+
+
+  
+    </ion-content><!--end location feed section-->
+
+     <!--loading progress-->
+    <!--angular template section-->
+    <script type="text/ng-template" id="image-picker-actions-template">
+        <md-bottom-sheet class="md-list md-has-header">
+            <h1 class="md-bottom-sheet-header">Image Picker Actions</h1>
+            <!--list section-->
+            <md-list>
+                <md-list-item>
+                    <a class="md-default-theme md-bottom-sheet-list-item"
+                       ng-click="selectImage(1)">
+                        <i class="ion-image"></i>
+                        <span>Single Select</span>
+                    </a>
+                </md-list-item>
+
+                <md-list-item>
+                    <a class="md-default-theme md-bottom-sheet-list-item"
+                       ng-click="selectImage(9999)">
+                        <i class="ion-images"></i>
+                        <span>Multiple Select</span>
+                    </a>
+                </md-list-item>
+            </md-list><!--end list section-->
+        </md-bottom-sheet>
+    </script><!--end angular template section-->
+    
+   
+</ion-view>

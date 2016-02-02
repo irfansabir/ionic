@@ -1,0 +1,27 @@
+<!--View Information-->
+<!--View name : Dashboard Setting-->
+<!--Controller name : dashboardSettingCtrl-->
+<!--Controller path : www/templates/material-user-interface/dashboard/js/controllers.js-->
+<!--State name : app.dashboardSetting-->
+<!--URL : #app/dashboardSetting-->
+
+<ion-view title="Messages">
+    <!--left button on navigation bar-->
+    <ion-nav-buttons side="left">
+        <a ng-click="$ionicGoBack()" class="button back-button buttons  button-clear header-item nav-back-btn">
+            <i class="ion-android-arrow-back "></i>
+        </a>
+    </ion-nav-buttons><!--end left button on navigation bar-->
+
+    <ion-content scroll="false">
+        <!--list section-->
+
+        <a class="item item-icon-left" ng-repeat="(key, value) in list" ng-click="navigateTo('app.messages',key.substring(1))">
+    <i class="icon ion-ios-chatboxes-outline"></i>
+    {{key.replace("-", " ").substring(1)}}
+    <span class="badge badge-assertive">{{value}}</span>
+  </a>
+
+        
+    </ion-content>
+</ion-view>

@@ -1,0 +1,49 @@
+
+
+<!--View Information-->
+<!--View name : Location Feed-->
+<!--State name : app.locationFeed-->
+<!--URL : #app/locationFeed-->
+
+<ion-view title="{{title}}">
+    <!--location feed section-->
+
+    <ion-nav-buttons side="left">
+        <a ng-click="$ionicGoBack()" class="button back-button buttons  button-clear header-item nav-back-btn">
+            <i class="ion-android-arrow-back "></i>
+        </a>
+    </ion-nav-buttons>
+    <ion-content id="location-feed-content">
+        <!--list section-->
+       
+            <!--location item section-->
+                 <!--location item section-->
+            <ion-refresher  on-refresh="doRefresh()">
+        </ion-refresher>
+            <div class="list" ng-repeat="item in list" >
+
+  
+
+                   
+
+                       
+                         <a class="item item-avatar" ng-click="navigateTo('app.details',item)">
+       <img ng-src="http://dev.pcexporters.com/{{item.CompanyLogo == '' ? no_preview : item.CompanyLogo}}" class="md-avatar"/>
+       <h3>{{item.product_description}}</h3>
+      <p>{{item.CompanyName}}</p>
+    </a>
+
+                  
+
+  
+</div>
+     <ion-infinite-scroll
+    on-infinite="loaddata()"
+    distance="1%" ng-if="!moredata">
+  </ion-infinite-scroll>
+    </ion-content><!--end location feed section-->
+
+     <!--loading progress-->
+   
+   
+</ion-view>

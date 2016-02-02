@@ -1,0 +1,99 @@
+<!--View Information-->
+<!--View name : Menu-->
+<!--Controller name : menuCtrl-->
+<!--Controller path : www/templates/menu/js/controllers.js-->
+<!--State name : app-->
+<!--URL : #app-->
+
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-balanced  material-background-nav-bar">
+            <ion-nav-buttons side="left">
+                <a class="button button-icon button-clear ion-navicon" menu-toggle="left" ng-click="toggleLeft()"></a>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+    <md-sidenav md-component-id="left">
+        <!--menu section-->
+        <div class="material-background" id="toggle-menu-left-header">
+            <!--menu header section-->
+            <div class="menu-left-header">
+                <img class="user-img" src="img/profileAvatar.jpg">
+
+                <p>
+                    <span class="title">Pcexporters</span>
+                    <br/>
+                    <span class="sub-title">Connecting IT Supliers and Buyers</span>
+                </p>
+            </div><!--end menu header section-->
+        </div> <!--menu content section-->
+        <ion-content id="toggle-menu-left-content">
+
+            <!--If device is android application will present below code.-->
+            <!--It will disable animation to better performance on android.-->
+            <!--list section-->
+            <div ng-if="isAndroid" class="menu-list">
+                <md-subheader class="md-warn">Application Storage</md-subheader>
+                <div class="row menu-item"  ng-click="navigateTo('app.dashboard')">
+                    <div class="col-33">
+                        <i class="fa fa-home"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>Dashboard</span>
+                    </div>
+                </div>
+
+               
+
+                <div class="row menu-item"  ng-click="navigateTo('app.home')">
+                    <div class="col-33">
+                        <i class="fa fa-tags"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>Categories</span>
+                    </div>
+                </div>
+
+                <div class="row menu-item"  ng-click="navigateTo('app.login')">
+                    <div class="col-33">
+                        <i class="fa fa-tags"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>{{login_status}}</span>
+                    </div>
+                </div>
+                
+
+                
+            </div>
+
+
+            <!--If device is not Android application will present below code.-->
+            <!--It will show animation when selecting row.-->
+            <md-list ng-if="!isAndroid">
+                <md-subheader class="md-warn">Application Storage</md-subheader>
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.dashboard')">
+                    <i class="fa fa-home"></i>
+                    <span>Dashboard</span>
+                </md-list-item>
+
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.home')">
+                    <i class="fa fa-tags"></i>
+                    <span>Categories</span>
+                </md-list-item>
+
+                  <md-list-item class="menu-list-item" ng-click="navigateTo('app.login')">
+                    <i class="fa fa-tags"></i>
+                    <span>{{login_status}}</span>
+                </md-list-item>
+
+               
+                
+            </md-list>
+            <!--end list section-->
+        </ion-content><!--end menu content section-->
+        <!--end menu section-->
+
+    </md-sidenav>
+</ion-side-menus>

@@ -1,0 +1,113 @@
+
+
+<!--View Information-->
+<!--View name : Location Feed-->
+<!--State name : app.locationFeed-->
+<!--URL : #app/locationFeed-->
+
+<ion-view title="Post Buying Lead ?">
+    <!--location feed section-->
+    <ion-content id="user-interface-content" >
+        <!--list section-->
+       
+        
+ <form name="postbuyingleads" novalidate>
+       <div class="list">    
+
+
+  <label class="item item-input item-select">
+    <div class="input-label" >
+       Product Category
+    </div>
+    <select ng-model="formdata.category" name="category" ng-options="item.CatID as item.CatName for item in cat_d" required>
+   
+      
+    </select>
+  </label>    <div ng-show="postbuyingleads.$submitted || postbuyingleads.category.$touched" class="error">
+        <p ng-show="postbuyingleads.category.$error.required" class="error">Provide us product category</p></div>
+
+
+
+ 
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Product Name</span>
+    <input type="text" name="product_name" placeholder="Product Name" ng-model="formdata.product_name" required> </label>
+<div ng-show="postbuyingleads.$submitted || postbuyingleads.product_name.$touched" class="error">
+        <p ng-show="postbuyingleads.product_name.$error.required" class="error">Provide us product Name</p></div>
+
+ 
+     
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Details</span>
+    <input type="text" placeholder="Details"  ng-model="formdata.details" >
+  </label>
+
+<label class="item item-input item-floating-label">
+    <span class="input-label">Quanitity</span>
+    <input type="text" placeholder="Quantity" name="quantity"  ng-model="formdata.quantity" required>
+  </label>
+
+  <div ng-show="postbuyingleads.$submitted || postbuyingleads.quantity.$touched" class="error">
+        <p ng-show="postbuyingleads.quantity.$error.required" class="error">Provide us product quantity</p></div>
+
+
+<label class="item item-input">
+    <div class="input-label" style="font-size:12px">
+       <span class="input-label"> Expiry Date </span>
+    </div>
+   
+    <md-datepicker ng-model="mydate" id="mydate" ng-change="setdate(mydate)" md-placeholder="Enter date"></md-datepicker>
+  </label>
+
+
+
+    <div class="item item-divider" style="font-size:12px"> 
+       <span class="input-label">   Purchase Type  </span>
+        </div>
+         <div class="radio-container padding">
+                <md-radio-group ng-model="formdata.purchase_type">
+                    <md-radio-button value="One Time Purchase">One Time Purchase</md-radio-button>
+                    <md-radio-button value="Regular Purchase">Regular Purchase</md-radio-button>
+                    
+                </md-radio-group>
+            </div>
+        
+  
+</div>
+ 
+
+<button type="button" class="button button-block button-positive"
+  ng-click="postdata(postbuyingleads.$valid,formdata)">
+ Submit
+</button>  </form>
+
+  
+    </ion-content><!--end location feed section-->
+
+     <!--loading progress-->
+    <!--angular template section-->
+    <script type="text/ng-template" id="image-picker-actions-template">
+        <md-bottom-sheet class="md-list md-has-header">
+            <h1 class="md-bottom-sheet-header">Image Picker Actions</h1>
+            <!--list section-->
+            <md-list>
+                <md-list-item>
+                    <a class="md-default-theme md-bottom-sheet-list-item"
+                       ng-click="selectImage(1)">
+                        <i class="ion-image"></i>
+                        <span>Single Select</span>
+                    </a>
+                </md-list-item>
+
+                <md-list-item>
+                    <a class="md-default-theme md-bottom-sheet-list-item"
+                       ng-click="selectImage(9999)">
+                        <i class="ion-images"></i>
+                        <span>Multiple Select</span>
+                    </a>
+                </md-list-item>
+            </md-list><!--end list section-->
+        </md-bottom-sheet>
+    </script><!--end angular template section-->
+   
+</ion-view>

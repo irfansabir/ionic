@@ -1,0 +1,45 @@
+
+
+<!--View Information-->
+<!--View name : Location Feed-->
+<!--State name : app.locationFeed-->
+<!--URL : #app/locationFeed-->
+
+<ion-view title="New Buyers">
+    <!--location feed section-->
+    <ion-nav-buttons side="left">
+      
+    <ion-content id="location-feed-content">
+        <!--list section-->
+       
+            <!--location item section-->
+                 <!--location item section-->
+            <ion-refresher  on-refresh="doRefresh()">
+        </ion-refresher>
+            <div class="list" ng-repeat="item in list" >
+
+  
+
+                   
+
+                       
+                         <a class="item item-avatar" ng-click="navigateTo('app.newbuyersdetails',item)">
+       <img ng-src="http://dev.pcexporters.com/{{item.CompanyLogo == '' ? no_preview : item.CompanyLogo}}" class="md-avatar"/>
+       <h3>{{item.CompanyName}}</h3>
+      <p>{{item.Introduction}}</p>
+    </a>
+
+                  
+
+  
+</div>
+     <ion-infinite-scroll
+    on-infinite="loaddata()"
+    distance="1%" ng-if="!moredata">
+  </ion-infinite-scroll>
+    </ion-content><!--end location feed section-->
+
+     <!--loading progress-->
+   
+   
+</ion-view>

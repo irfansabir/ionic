@@ -1,0 +1,48 @@
+<!--View Information-->
+<!--View name : Main Page-->
+<!--State name : app.main-->
+<!--URL : #app/main-->
+
+<ion-view title="Buying Leads">
+    <!--restaurant section-->
+    <ion-content id="restaurant">
+        <!--slider section-->
+       
+        <!--restaurant content section-->
+        <div id="restaurant-content">
+            
+          
+           
+            
+               
+
+                     <md-list>
+                
+                
+                
+
+               
+                <md-list-item class="md-2-line" ng-repeat="item in buyingleads">
+                    <img ng-src="http://dev.pcexporters.com/{{item.CompanyLogo == '' ? no_preview : item.CompanyLogo}}" class="md-avatar"/>
+
+                    <div class="md-list-item-text">
+                        <h3>{{item.CompanyName}}</h3>
+
+                        <p>{{item.product_description}}</p>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+                 </md-list>
+                
+            
+        
+            <div class="row">
+                <div class="col menu-content-detail">
+                    Copyright © 2015 pcexporters.com. All right reserved. Powered By Exporters Networks Limited.
+                   
+                </div>
+            </div>
+
+        </div> <!--end restaurant content section-->
+    </ion-content><!--end restaurant section-->
+</ion-view>

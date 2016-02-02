@@ -1,0 +1,48 @@
+<!--View Information-->
+<!--View name : Dashboard Setting-->
+<!--Controller name : dashboardSettingCtrl-->
+<!--Controller path : www/templates/material-user-interface/dashboard/js/controllers.js-->
+<!--State name : app.dashboardSetting-->
+<!--URL : #app/dashboardSetting-->
+
+<ion-view title="Messages">
+    <!--left button on navigation bar-->
+    <ion-nav-buttons side="left">
+        <a ng-click="$ionicGoBack()" class="button back-button buttons  button-clear header-item nav-back-btn">
+            <i class="ion-android-arrow-back "></i>
+        </a>
+    </ion-nav-buttons><!--end left button on navigation bar-->
+
+    <ion-content scroll="false">
+        <!--list section-->
+<form  name="replyform" novalidate >
+        <div class="list">
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">To</span>
+   <span class="input-label"> {{company_name}}</span>
+  </label>
+   <label class="item item-input item-stacked-label">
+    <span class="input-label">Subject</span>
+    <input type="text" placeholder="" name="subject" ng-model="data.subject" required />
+  </label>
+  <div ng-show="replyform.$submitted || replyform.subject.$touched" class="error">
+      <span ng-show="replyform.subject.$error.required">Subject required.</span>
+      
+    </div>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Message</span>
+    <textarea row="10" column="5" name="message" ng-model="data.message" required > </textarea>
+  </label>
+  <div ng-show="replyform.$submitted || replyform.message.$touched" class="error">
+      <span ng-show="replyform.message.$error.required">Message required.</span>
+      
+    </div>
+</div>
+<div class="padding">
+<button type="button" ng-click="sendmessage(replyform.$valid,data)" class="button icon-left ion-android-mail button-positive">Submit</button>
+</div>
+</form>
+
+        
+    </ion-content>
+</ion-view>

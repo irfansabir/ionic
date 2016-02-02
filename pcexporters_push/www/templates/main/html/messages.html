@@ -1,0 +1,42 @@
+<!--View Information-->
+<!--View name : Expense Dashboard-->
+<!--Controller name : expenseDashboardCtrl-->
+<!--Controller path : www/templates/themes/expense-dashboard/js/controllers.js-->
+<!--State name : app.expense-->
+<!--URL : #app/expense-->
+
+<ion-view title='{{title}}' id="location-feed-content">
+
+    <!--right button on navigation bar-->
+    <ion-nav-buttons side="right">
+        <md-button class="md-icon-button ion-nav-button-right" ng-click="goToSetting()"
+                   aria-label="Setting">
+            <i class="ion-android-more-vertical"></i>
+        </md-button>
+    </ion-nav-buttons> <!--end right button on navigation bar-->
+
+  
+
+    <!--expense content section-->
+    <ion-content id="expense-dashboard-content">
+
+         <ion-refresher  on-refresh="doRefresh()">
+        </ion-refresher>
+
+       <ion-list  class="list">
+
+    <a class="item item-icon-left" ng-repeat="item in messages"  id="{{item.ID}}" ng-click="navigateTo($event,'app.messages-reply',item)" >
+     <i class="icon {{item.read == 'Y' ? 'ion-ios-email-outline' : 'ion-email-unread'}}"></i>
+      <h2>{{item.CompanyName}}</h2>
+      <p style="font-size:10">{{item.subject}}</p>
+    </a>
+
+   
+
+ </ion-list>
+ <ion-infinite-scroll
+    on-infinite="loaddata()"
+    distance="1%" ng-if="!moredata">
+  </ion-infinite-scroll>
+    </ion-content><!--end expense content section-->
+</ion-view>
